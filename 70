@@ -1,0 +1,23 @@
+class Solution {
+
+    public int climbStairs(int n) {
+
+        // Base Cases
+        if (n <= 3)
+            return n;
+
+        // fibo[i] = Number of ways to reach stair i
+        int[] fibo = new int[n + 1];
+
+        fibo[1] = 1;
+        fibo[2] = 2;
+        fibo[3] = 3;
+
+        // Build DP Table
+        for (int i = 4; i <= n; i++) {
+            fibo[i] = fibo[i - 1] + fibo[i - 2];
+        }
+
+        return fibo[n];
+    }
+}
